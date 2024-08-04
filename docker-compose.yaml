@@ -32,6 +32,17 @@ services:
       - pgadmin:/var/lib/pgadmin
     restart: unless-stopped
 
+  rabbitmq:
+    image: 'rabbitmq:3.13-management-alpine'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    networks:
+      - ecommerce
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+
   storage:
     container_name: storage
     image: minio/minio

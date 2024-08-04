@@ -15,13 +15,15 @@ import java.util.UUID;
 public class ImageController {
 
     private final MinioClient minioClient;
+    private final ImageService imageService;
 
     @Value("${MINIO_BUCKET}")
     private String bucket;
 
     @Autowired
-    public ImageController(MinioClient minioClient) {
+    public ImageController(MinioClient minioClient, ImageService imageService) {
         this.minioClient = minioClient;
+        this.imageService = imageService;
     }
 
     @GetMapping("/buckets")
@@ -54,6 +56,8 @@ public class ImageController {
                             .object(uuid.toString())
                             .contentType(file.getContentType())
                             .build());
+
+            imageService.saveImage(new Image(uuid.toString(), file.getOriginalFilename(), file.getContentType()));
 
             return "File uploaded successfully";
         } catch (Exception e) {
