@@ -35,3 +35,6 @@ This is a basic e-commerce application built using microservices architecture wi
   - id (VARCHAR(50) PRIMARY KEY)
   - name (VARCHAR(255) NOT NULL)
   - mime_type (VARCHAR(50) NOT NULL)
+
+## Next JS UI
+![image](https://github.com/user-attachments/assets/ce6ca550-c563-4c2a-8d61-b85cb9ebe55c)
