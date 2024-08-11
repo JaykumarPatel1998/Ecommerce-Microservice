@@ -5,15 +5,52 @@ import { motion } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import { ProductCard } from "@/components/ui/product-card";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export default function Home() {
+  const productData1 = {
+    name: "Midnight Black Hoodie",
+    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    price: 79.99,
+    imageSrc: "/hoodies/hero-image.png",
+    imageAlt: "3D Floating Hoodie",
+    detailsLink: "/product/3d-floating-hoodie"
+  };
+
+  const productData2 = {
+    name: "Arctic White Hoodie",
+    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    price: 99.99,
+    imageSrc: "/hoodies/hoodie_white.png",
+    imageAlt: "3D Floating Hoodie",
+    detailsLink: "/product/3d-floating-hoodie"
+  };
+
+  const productData3 = {
+    name: "Sky Blue Hoodie",
+    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    price: 69.99,
+    imageSrc: "/hoodies/hoodie_blue.png",
+    imageAlt: "3D Floating Hoodie",
+    detailsLink: "/product/3d-floating-hoodie"
+  };
+
+  const productData4 = {
+    name: "Chestnut Brown Hoodie",
+    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    price: 59.99,
+    imageSrc: "/hoodies/hoodie_brown.png",
+    imageAlt: "3D Floating Hoodie",
+    detailsLink: "/product/3d-floating-hoodie"
+  };
+
+
   return (
     <div className="w-full">
-      <BackgroundGradient containerClassName="p-2 mt-4 w-[95%] md:w-[70%] mx-auto">
+      <BackgroundGradient containerClassName="p-2 mt-4 w-[95%] md:w-[75%] mx-auto">
         <div className="p-4 relative bg-background overflow-hidden">
-          <BackgroundBeams/>
+          {/* <BackgroundBeams /> */}
           <Spotlight
             className="-top-20 left-1/4 md:-top-20 md:left-1/2"
             fill="white"
@@ -25,43 +62,44 @@ export default function Home() {
                 initial={{ opacity: 0.5, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: 0.3,
-                  duration: 0.8,
+                  duration: 0.9,
                   ease: "easeInOut",
                 }}
                 className="mt-8 relative z-10 w-full"
               >
                 <Image src={HeroImage} alt="Hero Image" className="object-cover w-" />
               </motion.div>
-              
-              <TextGenerateEffect words={"starting from $69.99"} className="text-md text-center text-shadow-xl" />
+
+              <TextGenerateEffect words={"starting from $69.99"} className="text-md text-center text-shadow-xl hidden md:block" />
             </div>
 
 
-            <div className="p-4 md:row-start-1 text-center">
+            <div className="p-4 md:row-start-1 flex flex-col items-center justify-center gap-2">
               <h1 className="text-5xl font-bold tracking-wide text-fuchsia-400">
-                Lazy Bear
+                Valenciaga
               </h1>
-              <TextGenerateEffect words={"is the new fashionable hoodie store."} className="text-xl" />
-              <button className="p-[3px] mt-10 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-                <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
-                  Get busy shopping
-                </div>
-              </button>
+
+              <TextGenerateEffect words={"next gen fashionable hoodie store."} className="text-xl text-center" />
+
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                className="flex items-center cursor-pointer"
+              >
+
+                <span>Get busy shopping</span>
+              </HoverBorderGradient>
             </div>
           </div>
         </div>
       </BackgroundGradient>
 
-      <div className="grid">
-        <ProductCard/>
-        <ProductCard/>
-        <ProductCard/>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+        <ProductCard product={productData1} />
+        <ProductCard product={productData2} />
+        <ProductCard product={productData3} />
+        <ProductCard product={productData4} />
       </div>
-
-      
-
     </div>
   );
 }
