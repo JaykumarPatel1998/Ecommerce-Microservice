@@ -10,9 +10,9 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export default function Home() {
   const productData1 = {
-    name: "Midnight Black Hoodie",
-    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
-    price: 79.99,
+    name: "Exodus Black Hoodie",
+    description: "Permium quality synthetic hoodies delivered at your doorstep.",
+    price: 179.99,
     imageSrc: "/hoodies/hero-image.png",
     imageAlt: "3D Floating Hoodie",
     detailsLink: "/product/3d-floating-hoodie"
@@ -20,7 +20,7 @@ export default function Home() {
 
   const productData2 = {
     name: "Arctic White Hoodie",
-    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 99.99,
     imageSrc: "/hoodies/hoodie_white.png",
     imageAlt: "3D Floating Hoodie",
@@ -29,7 +29,7 @@ export default function Home() {
 
   const productData3 = {
     name: "Sky Blue Hoodie",
-    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 69.99,
     imageSrc: "/hoodies/hoodie_blue.png",
     imageAlt: "3D Floating Hoodie",
@@ -38,7 +38,7 @@ export default function Home() {
 
   const productData4 = {
     name: "Chestnut Brown Hoodie",
-    description: "Experience the magic of our 3D Floating Hoodie. Hover over this card to see it come to life!",
+    description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 59.99,
     imageSrc: "/hoodies/hoodie_brown.png",
     imageAlt: "3D Floating Hoodie",
@@ -50,7 +50,6 @@ export default function Home() {
     <div className="w-full">
       <BackgroundGradient containerClassName="p-2 mt-4 w-[95%] md:w-[75%] mx-auto">
         <div className="p-4 relative bg-background overflow-hidden">
-          {/* <BackgroundBeams /> */}
           <Spotlight
             className="-top-20 left-1/4 md:-top-20 md:left-1/2"
             fill="white"
@@ -62,7 +61,8 @@ export default function Home() {
                 initial={{ opacity: 0.5, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.9,
+                  delay: 0.2,
+                  duration: 0.7,
                   ease: "easeInOut",
                 }}
                 className="mt-8 relative z-10 w-full"
@@ -70,7 +70,7 @@ export default function Home() {
                 <Image src={HeroImage} alt="Hero Image" className="object-cover w-" />
               </motion.div>
 
-              <TextGenerateEffect words={"starting from $69.99"} className="text-md text-center text-shadow-xl hidden md:block" />
+              <TextGenerateEffect words={"starts from $59.99"} className="text-md text-center text-shadow-xl hidden md:block" />
             </div>
 
 
@@ -94,8 +94,21 @@ export default function Home() {
         </div>
       </BackgroundGradient>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
-        <ProductCard product={productData1} />
+      <motion.h1
+        
+        initial={{ opacity: 0.3, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.9,
+          ease: "easeInOut",
+        }}
+        className="text-3xl mt-4 font-bold tracking-wide text-fuchsia-400 text-center"
+      >
+        #Best Sellers
+      </motion.h1>
+      <div className="grid md:grid-cols-2 gap-2">
+        
+        {/* <ProductCard product={productData1} /> */}
         <ProductCard product={productData2} />
         <ProductCard product={productData3} />
         <ProductCard product={productData4} />
