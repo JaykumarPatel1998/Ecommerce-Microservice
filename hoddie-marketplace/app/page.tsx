@@ -10,6 +10,7 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export default function Home() {
   const productData1 = {
+    id: "1",
     name: "Exodus Black Hoodie",
     description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 179.99,
@@ -19,6 +20,7 @@ export default function Home() {
   };
 
   const productData2 = {
+    id: "2",
     name: "Arctic White Hoodie",
     description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 99.99,
@@ -28,6 +30,7 @@ export default function Home() {
   };
 
   const productData3 = {
+    id: "3",
     name: "Sky Blue Hoodie",
     description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 69.99,
@@ -37,6 +40,7 @@ export default function Home() {
   };
 
   const productData4 = {
+      id: "4",
     name: "Chestnut Brown Hoodie",
     description: "Permium quality synthetic hoodies delivered at your doorstep.",
     price: 59.99,
@@ -106,7 +110,7 @@ export default function Home() {
       >
         #Best Sellers
       </motion.h1>
-      <div className="grid md:grid-cols-2 gap-2">
+      <div className="grid md:grid-cols-3 gap-2">
         
         {/* <ProductCard product={productData1} /> */}
         <ProductCard product={productData2} />

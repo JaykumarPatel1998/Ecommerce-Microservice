@@ -6,6 +6,7 @@ import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Link from "next/link";
 
 interface Product {
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -18,8 +19,30 @@ interface ProductCardProps {
   product: Product;
 }
 
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  imageSrc: string;
+}
+
 export function ProductCard({ product }: ProductCardProps): React.ReactElement {
-  const { name, description, price, imageSrc, imageAlt, detailsLink } = product;
+  const {id, name, description, price, imageSrc, imageAlt, detailsLink } = product;
+
+  const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingItemIndex = cart.findIndex((item: CartItem) => item.id === id);
+
+    if (existingItemIndex > -1) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push({ id, name, price, quantity: 1, imageSrc });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(`Added ${name} to cart`);
+  };
 
   return (
     <CardContainer className="inter-var">
@@ -55,7 +78,7 @@ export function ProductCard({ product }: ProductCardProps): React.ReactElement {
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl text-sm font-bold bg-black text-white hover:bg-gray-800 transition-colors"
-            onClick={() => console.log(`Added ${name} to cart`)}
+            onClick={addToCart}
           >
             Add to Cart
           </CardItem>
