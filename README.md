@@ -18,6 +18,8 @@ This is a basic e-commerce application built using microservices architecture wi
 - **Database**: Separate Docker containers for each microservice's database. PostgreSQL is used as the database.
 - **Communication**: RESTful APIs for communication between the API Gateway and microservices. Kafka is used for asynchronous communication between microservices when necessary.
 
+Meeting video refer - **meeting-presentation.mp4**
+
 ## Database Schemas
 
 - **Products Table**:
