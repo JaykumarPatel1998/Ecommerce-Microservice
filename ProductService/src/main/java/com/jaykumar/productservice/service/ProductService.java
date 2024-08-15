@@ -32,4 +32,15 @@ public class ProductService {
     public void deleteProduct(Integer id) {
         productRepository.deleteById(id);
     }
+
+    public void updateInventory(Integer quantity, Integer productId) {
+        Product product = getProductById(productId);
+        if(product.getStock() < quantity) {
+            System.out.println("quantity ordered is less than inventory on hand");
+        } else {
+            product.setStock(product.getStock() - quantity);
+            System.out.println("Order dispatched");
+            productRepository.save(product);
+        }
+    }
 }
