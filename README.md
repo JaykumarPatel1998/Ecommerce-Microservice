@@ -9,7 +9,8 @@ This is an e-commerce application backend built using microservices architecture
 - **Image Service**: Adds a new product to file storage and Retrieves product images based on image Id.
 
 ## Technical Implementation
-![image](https://github.com/user-attachments/assets/fc291013-d2fd-4372-a9b2-b374e0b8f3a7)
+![diagram-export-9-12-2024-12_00_12-AM](https://github.com/user-attachments/assets/a0c69864-c9af-4899-b34e-c70442d3973a)
+
 
 - **Microservices**: Separate, independent microservices for Products, Orders, Admin, and Image.
 - **Containerization**: Docker containers for each microservice.
